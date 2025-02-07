@@ -3,8 +3,7 @@
 #define SWARM_H
 #include <iostream>
 using namespace std;
-class Grader;//this class is for grading purposes, no need to do anything
-class Tester;//this is your tester class, you add your test functions in this class
+class Tester;
 class Swarm;
 enum STATE {ALIVE, DEAD};   // possible states for a robot
 enum ROBOTTYPE {BIRD, DRONE, REPTILE, SUB, QUADRUPED};
@@ -19,7 +18,6 @@ const int MAXID = 99999;    // max robot ID
 class Robot{
     public:
     friend class Swarm;
-    friend class Grader;
     friend class Tester;
     Robot(int id, ROBOTTYPE type = DEFAULT_TYPE, STATE state = DEFAULT_STATE)
         :m_id(id),m_type(type), m_state(state) {
@@ -81,7 +79,6 @@ class Robot{
 };
 class Swarm{
     public:
-    friend class Grader;
     friend class Tester;
     //Name: Swarm - Default Constructor
     //Precondition: None
@@ -130,9 +127,9 @@ class Swarm{
     Robot* m_root;  // the root of the BST
     TREETYPE m_type;// the type of tree
 
-    // ***************************************************
-    // Any private helper functions must be delared here!
-    // ***************************************************
+    // ************************
+    // Private helper functions 
+    // ************************
 
     //Name: Swarm - checkDuplicate()
     //Precondition: None
