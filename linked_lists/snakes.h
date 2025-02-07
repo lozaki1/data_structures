@@ -9,8 +9,7 @@
 #include <vector>
 #include <ctime>     //used to get the current time
 using namespace std;
-class Grader;//this class is for grading purposes, no need to do anything
-class Tester;//this is your tester class, you add your test functions in this class
+class Tester;
 class Snakes;
 const int NOGAME = 0;
 const int PLAYER1TURN = 1;
@@ -144,7 +143,6 @@ public:
 
 class Cell{
 public:
-    friend class Grader;
     friend class Tester;
     friend class Snakes;
     Cell():m_cellID(0), m_next(nullptr),
@@ -168,7 +166,6 @@ private:
 };
 class Snakes{
 public:
-    friend class Grader;
     friend class Tester;
     //Name: Snakes - Default Constructor
     //Precondition: None
@@ -227,9 +224,9 @@ private:
     Cell * m_player2;   // current location on the board
     int m_playerTurn;   // set to 1 when it is player1 turn, 0 means there is no game
 
-    /******************************************
-    * Private function declarations go here! *
-    ******************************************/
+    /********************************
+    * Private function declarations *
+    ********************************/
 
    //Name: Snakes - getValidBoardSize()
     //Precondition: None
