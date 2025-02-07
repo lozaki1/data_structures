@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Grader;//this class is for grading purposes, no need to do anything
-class Tester;//this is your tester class, you add your test functions in this class
+class Tester;
 // ENGLISH board shape has 33 holes
 // DIAMOND board tepe has 41 holes
 // We do not support FRENCH board
@@ -22,7 +21,6 @@ const int MARBLE = 2;
 
 class Solitaire{
 public:
-  friend class Grader;
   friend class Tester;
   //Name: Solitaire - Default Constructor
   //Precondition: None
@@ -71,9 +69,9 @@ private:
   BOARDSHAPE m_shape; // the board shape (either english or diamond)
   int m_numMarbles;   // current number of marbles
     
-  /******************************************
-   * Private function declarations go here! *
-   ******************************************/
+  /*********************************
+   * Private function declarations *
+   ********************************/
   
   //Name: Solitaire - initializeDiamond()
   //Precondition: Members set to values for diamond board
