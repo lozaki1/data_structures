@@ -7,7 +7,6 @@
 #include <string>
 using namespace std;
 using std::out_of_range;
-class Grader;   // forward declaration (for grading purposes)
 class Tester;   //forward declaration
 class MQueue;   //forward declaration
 class Order;    //forward declaration
@@ -33,7 +32,6 @@ typedef int (*prifn_t)(const Order&);
 //
 class Order {
   public:
-    friend class Grader; // for grading purposes
     friend class Tester; // for testing purposes
     friend class MQueue;
     Order(){
@@ -83,7 +81,6 @@ class Order {
 
 class Node {
   public:
-    friend class Grader; // for grading purposes
     friend class Tester; // for testing purposes
     friend class MQueue;
     Node(Order order) {  
@@ -107,7 +104,6 @@ class Node {
 class MQueue {
 public:
     // stores the skew/leftist heap, minheap/maxheap
-    friend class Grader; // for grading purposes
     friend class Tester; // for testing purposes
     MQueue(){}
     MQueue(prifn_t priFn, HEAPTYPE heapType, STRUCTURE structure);
@@ -142,9 +138,9 @@ private:
 
     void dump(Node *pos) const; // helper function for dump
 
-    /******************************************
-     * Private function declarations go here! *
-     ******************************************/
+    /*********************************
+     * Private function declarations *
+     ********************************/
     
     //Name: MQueue - merge()
     //Precondition: None
